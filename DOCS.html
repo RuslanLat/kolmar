@@ -1,0 +1,655 @@
+<!DOCTYPE html><html><head>
+      <title>DOCS</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\rus_k\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.11\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<p><a href="https://github.com/RuslanLat/kolmar">Обратно в README↩️</a></p>
+<h2 id="сопроводительная-документация">СОПРОВОДИТЕЛЬНАЯ ДОКУМЕНТАЦИЯ </h2>
+<h3 id="сервис-предсказания-вероятности-увольнения-сотрудников">Сервис предсказания вероятности увольнения сотрудников. </h3>
+<h3 id="1-краткое-описание-сервиса">1. Краткое описание сервиса: </h3>
+<p>Сервис предоставляет возможность оценить динамику событий работы с сообщениями электронной почты и умеет:</p>
+<ul>
+<li>давать прогнозную оценку в % вероятности скорого увольнения каждого сотрудника.</li>
+<li>давать аналитику в разрезе отделов и департаментов по вероятности увольнения сотрудников</li>
+<li>с помощью подключенного телеграмм бота добавлять и удалять ответственных за текучесть сотрудников, рассылать файлы, списки сотрудников, отображать топ 3 с самым высокой вероятностью увольнения.</li>
+<li>осуществлять контроль за сотрудниками с высокой вероятностью увольнения с использованием чек листа и сравнительной статистикой.</li>
+</ul>
+<h3 id="2-основные-идеи-работы-сервиса">2. Основные идеи работы сервиса: </h3>
+<p>Данные для обучения получаем за последний год, до даты начала предсказания. Интервал времени - 1 день.<br>
+Предсказание вероятности увольнения сотрудников производится моделью на данных с временным сдвигом 1 неделя, т.е. агрегированные данные за временной период 12 месяцев, но со сдвигом вперед на 1 неделю.<br>
+Переобучение модели на новых данных в соответствии с интервалом сдвига.<br>
+Визуализация результатов предсказания и аналитической информации<br>
+Уведомление ответственных лиц (email, telegram)<br>
+Чек лист ответственных сотрудников по работе с важными сотрудниками с высокой вероятностью увольнения.<br>
+Контроль изменения вероятности увольнения важных сотрудников в следующем интервале предсказания.</p>
+<h3 id="3-пайплайн">3. Пайплайн: </h3>
+<p>Получение данных из баз данных:<br>
+Данные из почтового сервиса<br>
+Данные из CRM системы<br>
+Предобработка данных<br>
+EDA<br>
+Генерация новых фичей и отбор лучших фичей<br>
+Подбор лучшей модели:</p>
+<ul>
+<li>выбор метрики,</li>
+<li>подбор гипперпараметров</li>
+<li>выбор лучшей метрики по средней кроссвалидации</li>
+</ul>
+<p>Интерпретация результатов предсказания лучшей модели, важность признаков при работе модели.<br>
+Предсказание вероятности увольнения сотрудников, все сотрудники с вероятностью более 50 % в зоне риска увольнения</p>
+<p>Далее происходит работа ответственных сотрудников в соответствии с чек листом:</p>
+<ul>
+<li>Выявления возможных причин увольнения сотрудников</li>
+<li>Выявление неудовлетворенности работой.</li>
+<li>Выявление других возможных проблем влияющие на принятие решений по увольнению</li>
+<li>Принятие решений по выявленным проблемам сотрудника</li>
+</ul>
+<p>Через неделю/ 2 недели/ 3 недели контрольный замер эффективности, путем сравнения результатов предсказания вероятности увольнения сотрудников посредством переобучения модели на данных с временным сдвигом в соответствии с определенными интервалами.</p>
+<h3 id="4-описание-получения-данных-по-переписке-в-почтовых-сервисах-компании">4. Описание получения данных по переписке в почтовых сервисах компании: </h3>
+<p>Данные получаем из нескольких баз данных:<br>
+База данных хранения статистики использования почтового сервиса<br>
+База данных хранения писем из почтовой переписки сотрудников.<br>
+База данных хранения HR статистики о персонале.</p>
+<p>Логика выгрузки и агрегирования данных:</p>
+<p>Основная таблица для конкатенации была таблица из HR которая содержала в себе информацию:<br>
+ФИО сотрудника<br>
+ID сотрудника<br>
+Пол<br>
+Возраст<br>
+Дата приема на работу<br>
+Дата увольнения<br>
+Из данной таблицы получили следующие признаки:<br>
+name - ФИО сотрудника<br>
+employee_id - ID сотрудника<br>
+male - Пол<br>
+age - Возраст<br>
+experience - из крайней даты отчетного периода или даты увольнения отняли Дата приему на работу<br>
+target - вычислили по Дата увольнения</p>
+<p>Данные по численности выбирались за 12 месяцев, где учитывались все сотрудники, со стажем работы более 1 месяца (т.к. сотрудники менее одного месяца по объективным причинам имели сильно отклоняющимися данными по количественным характеристикам почтовой переписки).</p>
+<p>Данные из базы хранения писем выгружались за 12 месяцев, данные представляли собой:<br>
+ID сотрудника к которому прикреплен почтовый адрес<br>
+Почтовый адрес<br>
+Текст входящего письма<br>
+Статус ответа на входящее сообщение<br>
+Текст исходящего письма<br>
+Статус письма с внешними адресами (при наличии хоть 1 адресата с внешним адресом в адресе)<br>
+Статус письма с внутренними адресами (только внутреннии адресаты)<br>
+Дата и время письма<br>
+Дата и время прочтения входящего письма<br>
+Адресаты в отправленных письмах<br>
+Адресаты в копии<br>
+Адресаты в скрытой копии<br>
+Вес письма в байтах.</p>
+<p>Из данных таблиц получили следующие признаки:</p>
+<p>answer_total - фильтровали письма по полю Статус ответа на входящее сообщение, далее группировали в разрезе ID сотрудника по строкам и группировали столбцы суммируя количество таких писем по месяца, Брали сумму значения за период.</p>
+<p>answer_last - фильтровали письма по полю Статус ответа на входящее сообщение, далее группировали в разрезе ID сотрудника по строкам и группировали столбцы суммируя количество таких писем по месяца, брали число последнего месяца периода, если сотрудник работал 12 и более месяцев в отчетном периоде, либо последний месяц перед месяцем увольнения.</p>
+<p>cnt_question_incoming - фильтровались входящие письма с вопросительными знаками для расчета показателя и со статусом без ответа, и группировали в разрезе ID сотрудника по строкам и группировали столбцы суммируя количество таких писем по месяца за период.</p>
+<p>cnt_text_mean_total - рассчитывалось количество символов для исходящих сообщений, группировались данные по среднему значению в разрезе  ID сотрудника по строкам и месяцам по столбцам, далее брали среднее значение за период.</p>
+<p>cnt_text_mean_last - рассчитывалось количество символов для исходящих сообщений, группировались данные по среднему значению в разрезе  ID сотрудника по строкам и месяцам по столбцам, далее брали значение последнего месяца периода, если сотрудник работал 12 и более месяцев в отчетном периоде либо последний месяц перед месяцем увольнения.</p>
+<p>out_work_email_total - фильтровали письма отправленные вне рабочего времени, по полю Дата и время письма (брали время) и сравнивали со временем окончания рабочего дня. Группировали суммируя количество таких писем в разрезе ID сотрудника по строкам и группировали столбцы по месяцам. Брали сумму за период</p>
+<p>out_work_email_last - фильтровали письма отправленные вне рабочего времени, по полю Дата и время письма (брали время) и сравнивали со временем окончания рабочего дня. Группировали суммируя количество таких писем в разрезе ID сотрудника по строкам и группировали столбцы по месяцам. Брали число последнего месяца периода, если сотрудник работал 12 и более месяцев в отчетном периоде либо последний месяц перед месяцем увольнения.</p>
+<p>out_work_internal_email_total - фильтровали письма отправленные вне рабочего времени, по полю Дата и время письма (брали время) и сравнивали со временем окончания рабочего дня, а так же ставили фильтр по полю Статус письма с внутренними адресами, отбирая только внутреннюю переписку. Группировали суммируя количество таких писем в разрезе ID сотрудника по строкам и группировали столбцы по месяцам. Брали сумму за период</p>
+<p>out_work_internal_email_last - фильтровали письма отправленные вне рабочего времени, по полю Дата и время письма (брали время) и сравнивали со временем окончания рабочего дня, а так же ставили фильтр по полю Статус письма с внутренними адресами, отбирая только внутреннюю переписку. Группировали суммируя количество таких писем в разрезе ID сотрудника по строкам и группировали столбцы по месяцам. Брали число последнего месяца периода, если сотрудник работал 12 и более месяцев в отчетном периоде либо последний месяц перед месяцем увольнения.</p>
+<p>out_work_external_email_total - фильтровали письма отправленные вне рабочего времени, по полю Дата и время письма (брали время) и сравнивали со временем окончания рабочего дня, а так же ставили фильтр по полю Статус письма с внешними адресами, отбирая только внешнюю переписку. Брали сумму писем за период.</p>
+<p>out_work_external_email_last - фильтровали письма отправленные вне рабочего времени, по полю Дата и время письма (брали время) и сравнивали со временем окончания рабочего дня, а так же ставили фильтр по полю Статус письма с внешними адресами, отбирая только внешнюю переписку. Брали число последнего месяца периода, если сотрудник работал 12 и более месяцев в отчетном периоде либо последний месяц перед месяцем увольнения.</p>
+<p>external_email_total - фильтровали письма отправленные во вне выбирая по полю Статус письма с внешними адресами, группировали в разрезе ID сотрудника по строкам и группировали столбцы по месяцам. Брали сумму писем за период.</p>
+<p>external_email_last - фильтровали письма отправленные во вне выбирая по полю Статус письма с внешними адресами, группировали в разрезе ID сотрудника по строкам и группировали столбцы по месяцам.  Брали число последнего месяца периода, если сотрудник работал 12 и более месяцев в отчетном периоде либо последний месяц перед месяцем увольнения.</p>
+<p>internal_email_total - фильтровали письма отправленные внутри компании выбирая по полю Статус письма с внутренними адресами, отбирая только внутреннюю переписку. Группировали суммируя количество таких писем в разрезе ID сотрудника по строкам и группировали столбцы по месяцам. Брали сумму писем за период.</p>
+<p>internall_email_last - фильтровали письма отправленные внутри компании выбирая по полю Статус письма с внутренними адресами, отбирая только внутреннюю переписку. Группировали суммируя количество таких писем в разрезе ID сотрудника по строкам и группировали столбцы по месяцам.  Брали число последнего месяца периода, если сотрудник работал 12 и более месяцев в отчетном периоде либо последний месяц перед месяцем увольнения.</p>
+<p>cnt_addressees - по полю адресаты агрегировали и получали среднее количество адресатов за месяц, далее группировали значения по ID сотрудника по строкам и группировали столбцы по месяцам получая среднее количество адресатов в месяц за период.</p>
+<p>cnt_address_copy_total - по полю адресаты в копии группировали  ID сотрудника по строкам и группировали столбцы по месяцам получая среднее количество адресатов в месяц за период. Брали среднее количество за период.</p>
+<p>cnt_address_copy_last - по полю адресаты в копии группировали  ID сотрудника по строкам и группировали столбцы по месяцам получая среднее количество адресатов в месяц за период. Брали число последнего месяца периода, если сотрудник работал 12 и более месяцев в отчетном периоде либо последний месяц перед месяцем увольнения.</p>
+<p>cnt_address_hidden_copy_total - по полю адресаты в скрытой копии  группировали  ID сотрудника по строкам и группировали столбцы по месяцам получая среднее количество адресатов в месяц за период. Брали среднее количество за период.</p>
+<p>cnt_address_hidden_copy_last - по полю адресаты в скрытой копии  группировали  ID сотрудника по строкам и группировали столбцы по месяцам получая среднее количество адресатов в месяц за период. Брали число последнего месяца периода, если сотрудник работал 12 и более месяцев в отчетном периоде либо последний месяц перед месяцем увольнения.</p>
+<p>div_bytes_emails -  по полю Вес письма в байтах получали средний показатель входящих и исходящих писем и вычисляли разницу</p>
+<p>cnt_days_pause_total - по полям дата и время письма и дата и время прочтения письма рассчитывались показатели количества дней между получением и прочтением, группировали ID сотрудника по строкам и группировали столбцы по месяцам суммируя количество дней в месяц за период. Брали сумму дней за период.</p>
+<p>cnt_days_pause_last - по полям дата и время письма и дата и время прочтения письма рассчитывались показатели количества дней между получением и прочтением, группировали ID сотрудника по строкам и группировали столбцы по месяцам суммируя количество дней в месяц за период. Брали число последнего месяца периода, если сотрудник работал 12 и более месяцев в отчетном периоде либо последний месяц перед месяцем увольнения.</p>
+<p>cnt_4hours_later_total - по полям дата и время письма и дата и время прочтения письма рассчитывались показатели количества часов между получением и прочтением, группировали ID сотрудника по строкам и группировали столбцы по месяцам суммируя количество писем значение которых превышает 4 часа. Брали сумму таких писем за период</p>
+<p>cnt_4hours_later_last - по полям дата и время письма и дата и время прочтения письма рассчитывались показатели количества часов между получением и прочтением, группировали ID сотрудника по строкам и группировали столбцы по месяцам суммируя количество писем значение которых превышает 4 часа. Брали число последнего месяца периода, если сотрудник работал 12 и более месяцев в отчетном периоде либо последний месяц перед месяцем увольнения.</p>
+<p>Из базы данных хранения информации по использованию почтового сервиса мы также выгружали данные за 12 месяцев заданного периода, в разрезе месяца, для получения агрегированных показателей за выбранный период и последний месяц отчетного периода/последний месяц перед увольнением:<br>
+ID сотрудника<br>
+Количество использования почтового сервиса<br>
+Количество входящих писем<br>
+Количество исходящих писем</p>
+<p>Из данных таблиц получили следующие признаки:</p>
+<p>received_total - из поля Количество входящих писем вычисли сумму полученных писем за период</p>
+<p>received_last - из поля Количество входящих писем взяли цифру последнего месяца периода, если сотрудник работал 12 и более месяцев в отчетном периоде либо последний месяц перед месяцем увольнения.</p>
+<p>total_letters_total - из поля Количество исходящих писем вычисли сумму полученных писем за период</p>
+<p>total_letters_last - из поля Количество исходящих писем взяли цифру последнего месяца периода, если сотрудник работал 12 и более месяцев в отчетном периоде либо последний месяц перед месяцем увольнения.</p>
+<p>active_use_email - считали количество месяцев в которых использовался почтовый сервис для каждого сотрудника</p>
+<p>use_email_total - суммировали данные по полю Количество использования почтового сервиса</p>
+<p>use_email_last - по полю Количество использования почтового сервиса<br>
+брали цифру последнего месяца периода, если сотрудник работал 12 и более месяцев в отчетном периоде либо последний месяц перед месяцем увольнения.</p>
+<h3 id="5-структура-данных-таблиц-субд">5. Структура данных таблиц СУБД </h3>
+<p>База данных реализована в PostgreSQL</p>
+<p>(параметры доступа)</p>
+<ul>
+<li>host: 89.232.167.79</li>
+<li>port: 5432</li>
+<li>user: root</li>
+<li>password: Rtunb892</li>
+<li>database: postgres</li>
+</ul>
+<p><strong>PostgreSQL</strong> — это объектно-реляционная система управления базами данных (ORDBMS), наиболее развитая из открытых СУБД в мире. Имеет открытый исходный код и является альтернативой коммерческим базам данных.</p>
+<p><a href="https://github.com/RuslanLat/kolmar/tree/main/data/nosqldbm.xml">nosqldbm.xml</a> - описания модели данных, <a href="https://nosqldbm.ru/">сервис</a> для просмотра в интерактивном режиме</p>
+<p><img src="images/nosqldbm.png" alt="nosqldbm"></p>
+<table>
+<thead>
+<tr>
+<th>Таблицы</th>
+<th style="text-align:center">Наименование таблиц</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>admins</td>
+<td style="text-align:center">админ</td>
+</tr>
+<tr>
+<td>users</td>
+<td style="text-align:center">сотрудники</td>
+</tr>
+<tr>
+<td>departments</td>
+<td style="text-align:center">департаменты</td>
+</tr>
+<tr>
+<td>subdivisions</td>
+<td style="text-align:center">отделы</td>
+</tr>
+<tr>
+<td>roles</td>
+<td style="text-align:center">роли</td>
+</tr>
+<tr>
+<td>positions</td>
+<td style="text-align:center">должности</td>
+</tr>
+<tr>
+<td>emails</td>
+<td style="text-align:center">письма</td>
+</tr>
+<tr>
+<td>predicts</td>
+<td style="text-align:center">предсказания</td>
+</tr>
+<tr>
+<td>ratings</td>
+<td style="text-align:center">рейтинг</td>
+</tr>
+<tr>
+<td>user_bots</td>
+<td style="text-align:center">служебная таблица для бота</td>
+</tr>
+<tr>
+<td>department_bots</td>
+<td style="text-align:center">служебная таблица для бота</td>
+</tr>
+<tr>
+<td>subdivision_bots</td>
+<td style="text-align:center">служебная таблица для бота</td>
+</tr>
+</tbody>
+</table>
+<h3 id="6-модуль-оповещений-и-рассылки-отчетов-telegram--bot">6. Модуль оповещений и рассылки отчетов (Telegram  bot) </h3>
+<ul>
+<li><a href="https://t.me/+-xqRcI592AhiNTYy">Telegram bot HR</a></li>
+<li><a href="https://t.me/+-xqRcI592AhiNTYy">Telegram bot Департамента</a></li>
+<li><a href="https://t.me/+3uNhuYjW8OkwNzhi">Telegram bot Отдела</a></li>
+</ul>
+<h4 id="61-команды-доступные-только-для-hr-чата">6.1 Команды, доступные только для HR чата </h4>
+<p><em><strong>/рассылка</strong></em><br>
+отправляет в чат и почту HR, а также ответственным руководителям файл <strong>.csv</strong> с отчётом  - вероятность увольнения по каждому сотруднику, находящемуся в подчинении. HR получает отчет по всем сотрудникам.<br>
+<em>Примечание:</em> на текущий момент все отчеты отправляются на технический email. При этом данные email берутся из таблицы департаментов и отделов, соответсвующие адреса отображаются в заголовке письма ( <a href="mailto:kolmar.hr@yandex.ru">kolmar.hr@yandex.ru</a> )</p>
+<p><em><strong>/отслеживать &lt;id&gt;</strong></em><br>
+добавляет к отслеживанию сотрудника с ID = &lt;id&gt; - отображается на дашборде.</p>
+<p><em><strong>/неотслеживать &lt;id&gt;</strong></em><br>
+убирает из отслеживания</p>
+<p><em><strong>/инфо <id></id></strong></em><br>
+показывает краткую информацию о сотруднике с ID = &lt;id&gt;</p>
+<h4 id="62-команды-для-всех-чатов">6.2 Команды для всех чатов </h4>
+<p><strong>Правила доступа:</strong><br>
+* Чат отдела имеет доступ к данным только своего отдела<br>
+* Чат депортамента имеет доступ к данным всех отделов, входящих в состав департамента</p>
+<p><em><strong>/отчет</strong></em><br>
+<em><strong>/отчет &lt;название отдела или департамента&gt;</strong></em><br>
+Если указано название отдела/департамента, бот отправит файл с данными по сотрудникам отдела/департамента с указанием шанса уволиться, если нет, отправит файл со всеми данными, к которым есть доступ</p>
+<p><em><strong>/топ3</strong></em><br>
+<em><strong>/топ3 &lt;название отдела или департамента&gt;</strong></em><br>
+Если указано название отдела/департамента, бот отправит файл с данными по ТОП-3 сотрудникам отдела/департамента с максимальным шансом уволиться, если нет, отправит файл со всеми данными ТОП-3 сотрудников с максимальным шансом уволиться, к которым есть доступ</p>
+<p><em><strong>/список</strong></em><br>
+<em><strong>/список &lt;название отдела или департамента&gt;</strong></em><br>
+Если указано название отдела/департамента, бот отправит список с данными по сотрудникам отдела/департамента, если нет, отправит сообщение со всеми данными, к которым есть доступ</p>
+<p><em><strong>Комментарии:</strong></em><br>
+Данные в информационных отчетах и файлах демонстарционные, при необходимости можно доработать и выводить любые необходимые поля, которые есть в БД</p>
+<h4 id="63-технические-команды">6.3 Технические команды: </h4>
+<p><em><strong>/номерчата</strong></em><br>
+отображает номер текущего чата, чтоб можно было ему дать доступ</p>
+<p><em><strong>/команды</strong></em><br>
+список команд</p>
+<h4 id="64-в-реализации">6.4 В реализации: </h4>
+<p>Для HR чата сделать команду, которая будет давать права доступа для других чатов<br>
+На текущий момент все доступы "захардкожены"”", далее все доступы могут быть доступны на основе данных из БД</p>
+<h3 id="7-описание-структуры-входных-и-выходных-данных">7. Описание структуры входных и выходных данных </h3>
+<h4 id="71-входные-данные">7.1 Входные данные </h4>
+<p>Файл в формате <strong>CSV</strong> разделитель <strong>,</strong></p>
+<p><a href="https://github.com/RuslanLat/kolmar/tree/main/data/test_1_day.csv">Обазец файла</a> - для загрузки в модель</p>
+<table>
+<thead>
+<tr>
+<th>Наименование признака</th>
+<th>Значение признака</th>
+<th style="text-align:center">Тип данных</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>employee_id</td>
+<td>id сотрудника</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>male</td>
+<td>пол</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>age</td>
+<td>возраст</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>experience</td>
+<td>опыт в днях</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>use_email_total</td>
+<td>вход в почту итого за анализируемый период</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>active_use_email</td>
+<td>количество активных дней использования почты за анализируемый период</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>use_email_last</td>
+<td>вход в почту итого за последний месяц перед предсказанием</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>out_work_internal_email_total</td>
+<td>отправка писем итого внутри компании вне рабочего времени</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>out_work_internal_email_last</td>
+<td>отправка писем последний месяц внутри компании вне рабочего времени</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>out_work_external_email_total</td>
+<td>отправка писем итого внешним компаниям вне рабочего времени</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>out_work_external_email_last</td>
+<td>отправка писем последний месяц внешним компаниям вне рабочего времени</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>cnt_days_pause_total</td>
+<td>итого количество дней между получением письма и его прочтением</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>cnt_days_pause_last</td>
+<td>количество дней между получением письма и его прочтением в послений месяц</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>cnt_4hours_later_total</td>
+<td>количество писем итого прочитанных более чем через 4 часа</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>cnt_4hours_later_last</td>
+<td>количество писем в последний месяц прочитанных более чем через 4 часа</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>total_letters_total</td>
+<td>итого отправленных писем</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>total_letters_last</td>
+<td>количество писем отправленных в последний месяц</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>received_total</td>
+<td>итого полученных сообщений</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>received_last</td>
+<td>полученные сообщения в последний месяц</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>answer_total</td>
+<td>итого сообщенний на который направлен ответ</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>answer_last</td>
+<td>сообщенния за последний месяц на который направлен ответ</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>out_work_email_total</td>
+<td>отправка писем итого вне рабочего времени</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>out_work_email_last</td>
+<td>отправка писем последний месяц вне рабочего времени</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>external_email_total</td>
+<td>отправка писем итого внешним компаниям</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>external_email_last</td>
+<td>отправка писем последний месяц внутри компании</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>internal_email_total</td>
+<td>отправка писем итого внутри компании</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>internall_email_last</td>
+<td>отправка писем последний месяц внутри компании</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>cnt_addressees</td>
+<td>количество адресатов в отправляемых сообщениях;</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>cnt_address_copy_total</td>
+<td>количество сообщений с адресатами в поле "копия", всего за период</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>cnt_address_copy_last</td>
+<td>количество сообщений с адресатами в поле "копия", в последний месяц</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>cnt_address_hidden_copy_total</td>
+<td>количество сообщений с адресатами в поле «скрытая копия» итого за период</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>cnt_address_hidden_copy_last</td>
+<td>количество сообщений с адресатами в поле «скрытая копия» в последний месяц</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>div_bytes_emails</td>
+<td>отношение объема в байтах получаемых и отправляемых сообщений</td>
+<td style="text-align:center">float64</td>
+</tr>
+<tr>
+<td>cnt_question_incoming</td>
+<td>количество входящих сообщений, имеющих вопросительные знаки в тексте, но на которые не был направлен ответ.</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>cnt_text_mean_total</td>
+<td>среднее количество символов в отправлемых письмах за аналищируемый период</td>
+<td style="text-align:center">float64</td>
+</tr>
+<tr>
+<td>cnt_text_mean_last</td>
+<td>среднее количество символов в отправлемых письмах в последний месяц</td>
+<td style="text-align:center">float64</td>
+</tr>
+</tbody>
+</table>
+<h4 id="72-выходные-данные">7.2 Выходные данные </h4>
+<table>
+<thead>
+<tr>
+<th>Наименование признака</th>
+<th>Значение признака</th>
+<th style="text-align:center">Тип данных</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>employee_id</td>
+<td>id сотрудника</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>name</td>
+<td>имя</td>
+<td style="text-align:center">object</td>
+</tr>
+<tr>
+<td>lastname</td>
+<td>фамилия</td>
+<td style="text-align:center">object</td>
+</tr>
+<tr>
+<td>department</td>
+<td>департамент</td>
+<td style="text-align:center">object</td>
+</tr>
+<tr>
+<td>subdivision</td>
+<td>отдел</td>
+<td style="text-align:center">object</td>
+</tr>
+<tr>
+<td>position</td>
+<td>должность</td>
+<td style="text-align:center">object</td>
+</tr>
+<tr>
+<td>dismiss</td>
+<td>метка класса (1 - уволить, 0 - не уволить )</td>
+<td style="text-align:center">int64</td>
+</tr>
+<tr>
+<td>probability</td>
+<td>вероятность увольнения</td>
+<td style="text-align:center">float64</td>
+</tr>
+</tbody>
+</table>
+<p>Доступна выгрузка выходных данных в файл</p>
+<ul>
+<li>в формате <strong>CSV</strong> разделитель <strong>,</strong></li>
+<li>в формате <strong>XLSX</strong> MS Office</li>
+</ul>
+<h3 id="8-web---сервис">8. WEB - сервис </h3>
+<p>Web сервис сотрудника кадровой службы взаимодействует с базой данной (см. раздел 5) посредствам API (см. раздел 9)</p>
+<p><a href="http://46.243.227.129:5981/">Web сервис</a> - ссылка на сервис<br>
+<img src="images/qrcode.gif" alt="qrcode"></p>
+<h4 id="81-домашняя-страница">8.1 Домашняя страница </h4>
+<ul>
+<li>1 - меню</li>
+<li>2 - рабочая област<br>
+<em>Примечание</em><br>
+меню возможно скрыть при нажатии на <strong>Х</strong>, обратное отображение меню при нажатии на  <strong>&gt;</strong></li>
+</ul>
+<p><img src="images/1.png" alt="1"></p>
+<h4 id="82-персонал">8.2 Персонал </h4>
+<ul>
+<li>1 - переход на страницу  "Персонал"</li>
+<li>2 - имитация CRM системы кадровой службы<br>
+<em>Примечание</em><br>
+доступны справочники департаментов, отделов, персонала (должности, роли, сотрудники, структура штата)</li>
+</ul>
+<p><img src="images/2.png" alt="2"></p>
+<p>Типовая вкладка справочника</p>
+<ul>
+<li>1 - переход на страницу  "Персонал"</li>
+<li>2 - выбор справочника "Департаменты"<br>
+<em>Примечание</em><br>
+форма ввода данных, возможно добавление/удаление данных (на время хакатона не доступно во избежание утраты данных из базы данных)</li>
+<li>3 - вывод данных</li>
+</ul>
+<p><img src="images/3.png" alt="3"></p>
+<h4 id="83-прогнозирование">8.3 Прогнозирование </h4>
+<ul>
+<li>1 - переход на страницу  "Прогнозирование"</li>
+<li>2 - включение/отключение демонстрационного режима<br>
+<em>Примечание</em><br>
+при демонстрационном режиме возможно задать пользовательскую текущею дату</li>
+<li>3 - выбор текущей даты<br>
+<em>Примечание</em><br>
+при отключении демонстрационного режима автоматический определяется текущая дата</li>
+<li>4 - загрузка данных (см. раздел 7.1)<br>
+<em>Примечание</em><br>
+необходимо перетащить файл в окно загрузки или кликнуть левой клавишей мыши окно загрузки/или нажать кнопку Browse files и задать пользовательский путь к файлу</li>
+<li>5 - после выбора файла нажать кнопку "Загрузить"</li>
+</ul>
+<p><img src="images/4.png" alt="4"></p>
+<p>После нажатия на кнопку "Загрузить"</p>
+<ul>
+<li>1 - уведомление об успешной загрузке</li>
+<li>2 - отображение наименования загруженного файла</li>
+<li>3 - предпросмотр загруженного файла<br>
+<em>Примечаие</em><br>
+- доступно перелистывание страниц/переход на начальную или последнею  страницу (навигатор в правом нижнем углу таблицы)<br>
+- в навигаторе указано общее количество строк записей в файле<br>
+- данные выводядся по 10 строк</li>
+<li>4 - для получения результатов предсказания моделью нажать кнопку "Предсказать"</li>
+</ul>
+<p><img src="images/5.png" alt="5"></p>
+<ul>
+<li>1 - результат предсказания (см. раздел 7.2)</li>
+</ul>
+<p><img src="images/6.png" alt="6"></p>
+<p><em>Примечание</em><br>
+- результат предсказания автоматический сохраняется в базу данных<br>
+- данные предсказываемого файла также автоматический сохраняются в базу данных</p>
+<h4 id="основные-возможности-работы-с-результатом-предсказания">Основные возможности работы с результатом предсказания </h4>
+<ul>
+<li>1 - при клике левой кнопкой мыши по левой/правой стороне каждого столбца, в зависимости от его расположения относительно срединного столбца доступно меню по работе и анализу данных (три полоски)</li>
+</ul>
+<p><img src="images/7.png" alt="7"></p>
+<ul>
+<li>1 - основная рабочая область</li>
+<li>2 - фильтрация данных</li>
+<li>3 - выбор отображаемых столбцов</li>
+<li>4 - группировка по выбранному столбцу</li>
+</ul>
+<p><img src="images/8.png" alt="8"></p>
+<ul>
+<li>2 - фильтрация данных<br>
+<em>Примечание</em><br>
+для фильтраии данных необходимо ввести требуюмую информацию в строку поиска (фильтрация данных и логика работы зависит от типа данных) или прокликать мышью по галочкам, далее нажать Enter на клавиатуре</li>
+</ul>
+<p><img src="images/9.png" alt="9"></p>
+<ul>
+<li>3 - выбор отображаемых столбцов<br>
+для отображения столбцов необходимо ввести требуюмую информацию в строку поиска или прокликать мышью по галочкам, далее нажать Enter на клавиатуре</li>
+</ul>
+<p><img src="images/10.png" alt="10"></p>
+<p>Возможность выгрузки данных в файл <strong>CSV</strong>  или <strong>XLSX</strong> MS Office<br>
+Для выгрузки данных в файл необходимо кликнуть правой клавишей мыши по любому месту рабочей области таблицы</p>
+<ul>
+<li>1 - выбрать "Экспорт"</li>
+<li>2 - выбрать желаемый вариант файла<br>
+<em>Примечание</em><br>
+состояние файла при выгрузке запоминается в зависимости от фильтрации или группировки данных</li>
+</ul>
+<p><img src="images/11.png" alt="11"></p>
+<p>Смена очередности отображения столбцов<br>
+Для этого необходимо зажать требуемый столбец левой кнопкой мыши и перенести в требуемое место</p>
+<ul>
+<li>1 - перемещение столбца</li>
+</ul>
+<p><img src="images/12.png" alt="12"></p>
+<p>Возможный вариант группировки данных</p>
+<ul>
+<li>1 - группировка данных<br>
+<em>Примечание</em><br>
+состояние файла при выгрузке запоминается в зависимости от фильтрации или группировки данных</li>
+<li>2 - сортировка данных по возрастанию/убыванию<br>
+<em>Примечание</em><br>
+для сортировки данных необходимо кликнуть по заглавию сортируемого столбца</li>
+</ul>
+<p><img src="images/13.png" alt="13"></p>
+<h4 id="84-аналитика">8.4. Аналитика </h4>
+<ul>
+<li>1 - переход на страницу "Аналитика"</li>
+<li>2 - вкладки анализа</li>
+<li>3 - дашборд<br>
+<em>Примечание</em><br>
+<a href="https://cloud.yandex.ru/docs/datalens/">Расширенная инструкция</a> по порядку работы в дашборде</li>
+</ul>
+<p><img src="images/14.png" alt="14"></p>
+<h4 id="85-контроль">8.5. Контроль </h4>
+<ul>
+<li>1 - переход на страницу "Контроль"</li>
+<li>2 - рабочая область (анкета)<br>
+<em>Примечание</em><br>
+в стадии разработке</li>
+</ul>
+<p><img src="images/15.png" alt="15"></p>
+<h4 id="86-контакты">8.6. Контакты </h4>
+<ul>
+<li>1 - переход на страницу "Контакты"</li>
+<li>2 - контакты команды</li>
+</ul>
+<p><img src="images/16.png" alt="16"></p>
+<h3 id="9-api">9 API </h3>
+<p><a href="http://89.232.160.71:8080/docs">API</a> - документация на API<br>
+<em><strong>Примечание</strong></em><br>
+<em>все методы доступны только авторизованному пользователю логин - user, пароль - user, метод - /user.login</em></p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
