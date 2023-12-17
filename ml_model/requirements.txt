@@ -1,0 +1,9 @@
+matplotlib
+matplotlib-inline
+numpy
+pandas
+scikit-learn
+scipy
+seaborn
+phik
+pydotplus

@@ -1,0 +1,13 @@
+.ipynb_checkpoints/
+/venv/*
+/build/*
+/dist/*
+/pgdata/*
+/node_modules/*
+__pycache__/
+*.py[cod]
+*.pptx
+*.exe
+*.mp4
+package.json
+package-lock.json
