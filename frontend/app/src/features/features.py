@@ -2,7 +2,10 @@ import pandas as pd
 
 
 def make_features(df: pd.DataFrame) -> pd.DataFrame:
-    df = df.drop(["employee_id", "name"], axis=1)
+    if "name" in list(df.columns):
+        df = df.drop(["employee_id", "name"], axis=1)
+    else:
+        df = df.drop(["employee_id"], axis=1)
     df["div_UseEmail"] = df["use_email_last"] / df["use_email_total"]
     df["div_answer_UseEmail"] = df["answer_last"] / df["use_email_last"]
     df["div_TotalLetters_answer"] = df["answer_last"] / df["total_letters_last"]

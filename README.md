@@ -35,6 +35,10 @@
 * [Сопроводительная документация](DOCS.md)
 * [API](http://89.232.160.71:8080/docs)
 
+6. Данные для тестирования сервиса
+
+Тестовые [данные](https://github.com/RuslanLat/kolmar/tree/main/data/test) на 5 дней
+
 Команда **"К"** \
 Руслан Латипов <img src="images/telegram_logo.png" width="30"> @rus_lat116 \
 Юрий Дон <img src="images/telegram_logo.png" width="30"> @Yuriy_Nikitich \

@@ -67,8 +67,8 @@ styles = {
 }
 
 sess = requests.Session()
-host = "http://127.0.0.1:8080/"
-# host = "http://89.232.160.71:8080/"
+# host = "http://127.0.0.1:8080/"
+host = "http://89.232.160.71:8080/"
 data = {"login": "user", "password": "user"}
 sess.post(host + "user.login", json=data)
 
@@ -433,7 +433,7 @@ if selected == "Прогнозирование":
         current_time = str(datetime.datetime.now())
     else:
         uploaded_file_form, uploaded_file, day, uploaded_button = make_uploaded_file_demo_form()
-        current_time = f"{day} 00:00:00"
+        current_time = f"{day} 10:00:00"
     if uploaded_file:
         st.write(
         f"""
@@ -444,23 +444,24 @@ if selected == "Прогнозирование":
         pred_df = make_predict(df=df, load_model=load_model, df_test=df_test)
         full_users_df = get_full_users_list(host=host, sess=sess)
         adgrid_pred_show = pred_df.merge(full_users_df, left_on="employee_id", right_on="id")
+        adgrid_pred_show = adgrid_pred_show.sort_values(by="probability", ascending=False)
         pred_button = st.button("Предсказать")
         if pred_button:
             adgrid_pred_df = plot_change_table(adgrid_pred_show.iloc[:,[0, 5, 6, 7, 8, 9, 1, 3]], key="pred")
             
-            # df_insert = df.iloc[:,[1, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]]
-            # df_insert.rename(columns={"employee_id" : "user_id"}, inplace=True)
-            # df_insert.insert(loc= 1 , column='date', value=[current_time for _ in range(len(df_insert))])
-            # emails = list(df_insert.T.to_dict().values())
-            # data = {"emails" : emails}
-            # r = sess.post(host + "email.add.all", json=data)
+            df_insert = df.iloc[:,[0, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]]
+            df_insert.rename(columns={"employee_id" : "user_id"}, inplace=True)
+            df_insert.insert(loc= 1 , column='date', value=[current_time for _ in range(len(df_insert))])
+            emails = list(df_insert.T.to_dict().values())
+            data = {"emails" : emails}
+            r = sess.post(host + "email.add.all", json=data)
 
-            # df_predict = pred_df.iloc[:,[0, 1, -1]]
-            # df_predict.rename(columns={"employee_id" : "user_id"}, inplace=True)
-            # df_predict.insert(loc= 1 , column='date', value=[current_time for _ in range(len(df_predict))])
-            # predicts = list(df_predict.T.to_dict().values())
-            # data_predict = {"predicts" : predicts}
-            # r = sess.post(host + "predict.add.all", json=data_predict)
+            df_predict = pred_df.iloc[:,[0, 1, -1]]
+            df_predict.rename(columns={"employee_id" : "user_id"}, inplace=True)
+            df_predict.insert(loc= 1 , column='date', value=[current_time for _ in range(len(df_predict))])
+            predicts = list(df_predict.T.to_dict().values())
+            data_predict = {"predicts" : predicts}
+            r = sess.post(host + "predict.add.all", json=data_predict)
             
 
 
