@@ -7,3 +7,5 @@ from app.emails.models import *
 from app.predicts.models import *
 from app.ratings.models import *
 from app.subdivisions.models import *
+from app.groups.models import *
+from app.stimuls.models import *

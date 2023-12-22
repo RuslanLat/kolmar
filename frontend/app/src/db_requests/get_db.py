@@ -105,3 +105,20 @@ def get_full_users_list(host, sess):
     df = pd.DataFrame(r.json()["data"]["users"]).iloc[:, [0, 1, 2, 7, 8, 9]]
 
     return df
+
+
+def get_full_users_bot_list(host, sess):
+    r = sess.get(host + "user.full.bot.list")
+    df = pd.DataFrame(r.json()["data"]["users"])
+
+    df["full_name"] = df["name"] + " " + df["lastname"]
+
+    return df["full_name"].to_list()
+
+def get_group_list(host, sess):
+    r = sess.get(host + "group.list")
+    df = pd.DataFrame(r.json()["data"]["groups"]).rename(
+        columns={"group_id": "А/B группа тестирования", "group": "Комментарий"}
+    )
+
+    return df

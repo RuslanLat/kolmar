@@ -27,6 +27,7 @@ from app.users.schemes import (
     UserUpdateRequestSchema,
     UserInsertRequestSchema,
     UserFullListResponseSchema,
+    UserBotFullListResponseSchema,
 )
 from app.web.app import View
 from app.web.mixins import (
@@ -34,7 +35,7 @@ from app.web.mixins import (
     AuthUserRequiredMixin,
 )
 from app.web.utils import json_response
-from app.users.models import User, UserLogin
+from app.users.models import User, UserLogin, UserBotFull
 
 
 class UserLoginView(View):
@@ -293,3 +294,16 @@ class UserFullListView(AuthUserRequiredMixin, View):
         users: List[User] = await self.store.users.list_full_user()
 
         return json_response(UserFullListResponseSchema().dump({"users": users}))
+
+
+class UserBotFullListView(AuthUserRequiredMixin, View):
+    @response_schema(UserBotFullListResponseSchema, 200)
+    @docs(
+        tags=["users"],
+        summary="Add full user bot list view",
+        description="Get full list users bot from database",
+    )
+    async def get(self) -> Response:
+        users: List[UserBotFull] = await self.store.users.list_full_user_bot()
+
+        return json_response(UserBotFullListResponseSchema().dump({"users": users}))

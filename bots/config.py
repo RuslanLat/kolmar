@@ -49,3 +49,39 @@ WHERE role_id = 3
 
 
 '''
+
+
+follow_query = '''
+SELECT u.id, CONCAT(u.name, ' ', u.lastname) as fio,
+p.probability, s.subdivision,
+d.department, p.differ
+
+FROM public.users as u
+JOIN 
+(
+SELECT user_id, ROUND(100 * probability / lead)::int - 100 as differ, probability
+FROM (
+SELECT user_id, probability, RANK() over (PARTITION BY user_id ORDER BY date DESC) as rank,
+LEAD(probability) over (PARTITION BY user_id ORDER BY date DESC) as lead
+FROM predicts
+ORDER BY user_id
+) as t
+WHERE rank = 1  and lead IS NOT NULL
+
+
+)
+ as p on p.user_id = u.id 
+JOIN 
+(
+SELECT subdivision_id as id, subdivision
+FROM subdivisions
+) as s on s.id = u.subdivision_id
+
+JOIN 
+(
+SELECT department_id as id, department
+FROM departments
+) as d on d.id = u.department_id
+LEFT JOIN user_bots as ub on ub.user_id = u.id
+WHERE role_id = 3 and ub.is_view = True
+'''

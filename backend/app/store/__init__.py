@@ -18,6 +18,8 @@ class Store:
         from app.store.predicts.accessor import PredictAccessor
         from app.store.ratings.accessor import RatingAccessor
         from app.store.subdivisions.accessor import SubdivisionAccessor
+        from app.store.groups.accessor import GroupAccessor
+        from app.store.stimuls.accessor import StimulAccessor
 
         self.admins = AdminAccessor(app)
         self.users = UserAccessor(app)
@@ -29,7 +31,8 @@ class Store:
         self.predicts = PredictAccessor(app)
         self.ratings = RatingAccessor(app)
         self.subdivisions = SubdivisionAccessor(app)
-
+        self.groups = GroupAccessor(app)
+        self.stimuls = StimulAccessor(app)
 
 
 def setup_store(app: "Application"):

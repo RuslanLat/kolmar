@@ -50,6 +50,7 @@ class UserBot:
     id: Optional[int]
     user_id: int
     is_view: bool
+    group: int
 
 
 @dataclass
@@ -68,6 +69,15 @@ class UserFull:
     fired: bool
     email: str = None
     telegram_id: int = None
+
+
+@dataclass
+class UserBotFull:
+    id: Optional[int]
+    name: str
+    lastname: str
+    is_view: bool
+    group_id: int
 
 
 class UserLoginModel(db):
@@ -106,6 +116,7 @@ class UserModel(db):
     rating = relationship("RatingModel", back_populates="user")
     subdivision = relationship("SubdivisionModel", back_populates="user")
     user_bot = relationship("UserBotModel", back_populates="user")
+    stimul = relationship("StimulModel", back_populates="user")
 
 
 class UserBotModel(db):
@@ -113,4 +124,6 @@ class UserBotModel(db):
     id = Column(Integer, primary_key=True)
     user_id = Column(ForeignKey("users.id"))
     is_view = Column(Boolean, default=False)
+    group = Column(Integer, default=0)
+    group_id = Column(ForeignKey("groups.group_id", ondelete="CASCADE"))
     user = relationship(UserModel, back_populates="user_bot")

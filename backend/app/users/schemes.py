@@ -40,6 +40,7 @@ class UserBaseSchema(Schema):
 class UserRequestSchema(UserBaseSchema):
     pass
 
+
 class UserInsertRequestSchema(Schema):
     id = fields.Int(required=True)
     name = fields.Str(required=True)
@@ -49,6 +50,7 @@ class UserInsertRequestSchema(Schema):
     experience = fields.Int(required=True)
     # email = fields.Str()
     # telegram_id = fields.Int()
+
 
 class UserUpdateRequestSchema(UserBaseSchema):
     id = fields.Int(required=True)
@@ -95,3 +97,15 @@ class UserFullResponseSchema(Schema):
 
 class UserFullListResponseSchema(Schema):
     users = fields.Nested(UserFullResponseSchema, many=True)
+
+
+class UserBotFull(Schema):
+    id = fields.Int(required=True)
+    name = fields.Str(required=True)
+    lastname = fields.Str(required=True)
+    # is_view = fields.Boolean()
+    # group_id = fields.Int()
+
+
+class UserBotFullListResponseSchema(Schema):
+    users = fields.Nested(UserBotFull, many=True)

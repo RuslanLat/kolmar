@@ -12,6 +12,7 @@ from app.users.views import (
     UserUpdateView,
     UserInsertAddView,
     UserFullListView,
+    UserBotFullListView,
 )
 
 if typing.TYPE_CHECKING:
@@ -32,4 +33,5 @@ def setup_routes(app: "Application") -> None:
     app.router.add_view("/user.delete", UserDeleteView)
     app.router.add_view("/user.list", UserListView)
     app.router.add_view("/user.insert.add", UserInsertAddView)
-    app.router.add_view("/user.full.list", UserFullListView,)
+    app.router.add_view("/user.full.list", UserFullListView)
+    app.router.add_view("/user.full.bot.list", UserBotFullListView)

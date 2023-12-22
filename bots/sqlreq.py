@@ -11,13 +11,14 @@ con_str = cn.P_CON
 
 # хардкод. каждый из отделов или департаментов будет иметь доступ только к данным своих подчиненных
 # пока что строго заданы, после доработок данные по разрешениям будут браться из базы
+master_chat = -4084480739
 temporary_permission = {
     -4087048084: 'Отдел №1',
     -4054526368: 'Департамент №2',
-    -4084480739: 'Мастер чат'
+    master_chat: 'Мастер чат'
 }
 
-master_chat = -4084480739
+
 
 def check_permission(chat_id: int, params: str) -> str:
     if chat_id not in temporary_permission.keys():
@@ -195,3 +196,48 @@ def send_reports(query: str, params: str) -> str:
     df.to_csv(fname, index=False)
     emails(fname, email)
     return fname
+
+
+def follow_list(query: str) -> str:
+    engine = create_engine(con_str)
+    df = pd.read_sql_query(query, con=engine)
+    if df.empty:
+        return 'Нет сотрудников на отслеживании'
+    else:
+        try:
+            df = df.sample(10)
+        except Exception as e:
+            pass
+        res = '<i>демо, до 10 случайных</i>\n'
+        for _, itm in df.iterrows():
+            cur_res = f'<b>Сотрудник {itm["id"]}:</b> {itm["fio"]}, вероятность увольнения: {round(itm["probability"])}%,'
+            cur_res += f' от прошлого {"+" if itm["differ"] > 0 else ""}{itm["differ"]}%'
+            res += cur_res + '\n'
+        return res
+
+
+
+def add_group(ids: int, group: int) -> str:
+    engine = create_engine(con_str)
+    query = f'''
+        SELECT CONCAT(name, ' ', lastname) as fio
+        FROM users
+        WHERE id = {ids} and position_id = 3
+    '''
+    df = pd.read_sql_query(query, con=engine)
+    if df.empty:
+        return 'Не найден сотрудник с таким ID (или является руководителем)'
+    else:
+        fio = df["fio"][0]
+        # FIXLATER
+        df = pd.read_sql_table('user_bots', con=engine)
+        if ids not in df['user_id'].values:
+            df.loc[-1, 'user_id'] = ids
+            df.loc[-1, 'id'] = ids
+        df.loc[df['user_id'] == ids, 'group_id'] = group if group != 0 else None
+        df[['id', 'user_id']] = df[['id', 'user_id']].astype('int')
+        df.to_sql('user_bots', con=engine, if_exists='replace', index=False)
+        if group != 0:
+            return f'Сотрудник {ids} <i>{fio}</i> добавлен в группу {group}'
+        else:
+            return f'Сотрудник {ids} <i>{fio}</i> убран из групп'

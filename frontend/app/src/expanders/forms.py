@@ -104,6 +104,28 @@ def make_role_form():
     return role_form, role, role_radio, role_submitted
 
 
+def make_group_form():
+    col1, col2, col3 = st.columns(3)
+    with col2:
+        group_form = st.form("group_form")
+        group_form.write("Добавить/удалить комментарий")
+        group = group_form.text_input(
+            label="Комментарий для А/B группы тестирования",
+            placeholder="Введите комментарий для А/B группы ...",
+            help="введите комментарий для А/B группы тестирования",
+            key="group",
+        )
+        group_radio = group_form.radio(
+            "Добавить/удалить",
+            ["Добавить", "Удалить"],
+            horizontal=True,
+            label_visibility="collapsed",
+        )
+        group_submitted = group_form.form_submit_button("сохранить")
+
+    return group_form, group, group_radio, group_submitted
+
+
 def make_position_form():
     col1, col2, col3 = st.columns(3)
     with col2:
@@ -313,42 +335,55 @@ def make_uploaded_file_demo_form():
     return uploaded_file_form, uploaded_file, day, uploaded_button
 
 
-def make_check_form():
+def make_check_form(user_list):
     st.markdown(
         '<h2 style="text-align: center; color: blac;"> Чек лист<br>для работы с сотрудниками под риском увольнения </h2>',
         unsafe_allow_html=True,
     )
     st.write("##")
+    col1, col2, col3 = st.columns(3)
+    with col2:
+        full_name = st.selectbox(
+                label="Сотрудник",
+                options=user_list,
+                placeholder="Выбирете сотрудника ...",
+                index=None,
+                help="выбирете сотрудника",
+                key="check_form",
+            )
+    st.write("##")
     col1, col2, col3 = st.columns((1,4,1))
     col2.write("Выявить причины неудовлестворенности работой")
-    col2.text_area(label="ответ сотрудника", key="q1")
+    q1 = col2.text_area(label="ответ сотрудника", key="q1")
     col2.divider()
     col2.write("Выявить потребности, которые не достаточноном количестве удовлетворяются у сотрудника")
-    col2.text_area(label="ответ сотрудника", key="q2")
+    q2 = col2.text_area(label="ответ сотрудника", key="q2")
     col2.divider()
     col2.write("При какких обстоятельствах сотрудник изменит свое отношение к компании")
-    col2.text_area(label="ответ сотрудника", key="q3")
+    q3 = col2.text_area(label="ответ сотрудника", key="q3")
     col2.divider()
     col2.write("Нужна ли сотруднику помощь в решении проблем, которые помогут ему остаться в компании")
-    col2.text_area(label="ответ сотрудника", key="q4")
+    q4 = col2.text_area(label="ответ сотрудника", key="q4")
     col2.divider()
     col2.write("Основные причины недовольства работой в компании")
-    col2.text_area(label="ответ сотрудника", key="q5")
+    q5 = col2.text_area(label="ответ сотрудника", key="q5")
     col2.divider()
     col2.write("Что бы сотрудник хотел изменить в своем рабочем процессе")
-    col2.text_area(label="ответ сотрудника", key="q6")
+    q6 = col2.text_area(label="ответ сотрудника", key="q6")
     col2.divider()
     col2.write("Что бы сотрудник хотел изменить на рабочем месте")
-    col2.text_area(label="ответ сотрудника", key="q7")
+    q7 = col2.text_area(label="ответ сотрудника", key="q7")
     col2.divider()
     col2.write("Когда сотруднику последний раз повышали з/п")
-    col2.text_area(label="ответ сотрудника", key="q8")
+    q8 = col2.text_area(label="ответ сотрудника", key="q8")
     col2.divider()
     col2.write("Когда сотруднику последний раз выплачивали премию")
-    col2.text_area(label="ответ сотрудника", key="q9")
+    q9 =  col2.text_area(label="ответ сотрудника", key="q9")
     col2.divider()
     col2.write("Как сотрудник оценивает результаты своего труда в компании (10 бальная шкала)")
-    col2.text_area(label="ответ сотрудника", key="q10")
+    q10 =  col2.text_area(label="ответ сотрудника", key="q10")
     col2.divider()
     col2.write("Чего хочет добиться сотрудник в работе")
-    col2.text_area(label="ответ сотрудника", key="q11")
+    q11 = col2.text_area(label="ответ сотрудника", key="q11")
+
+    return full_name, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11

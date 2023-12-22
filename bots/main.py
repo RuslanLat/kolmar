@@ -16,14 +16,13 @@ bot = Bot(token=TOKEN, parse_mode="html")
 
 dp = Dispatcher()
 
-
 @dp.message(Command("номерчата"))
 async def cmd_name(message: types.Message, command: CommandObject):
     await message.answer(f"{message.chat.id}")
 
 @dp.message(Command("команды"))
 async def cmd_name(message: types.Message, command: CommandObject):
-    commands = ['топ3', 'отслеживать', 'неотслеживать', 'список', 'отчет', 'инфо', 'обновление']
+    commands = ['топ3', 'отслеживать', 'неотслеживать', 'отслеживаемые', 'список', 'отчет', 'инфо', 'обновление', 'рассылка', 'группа']
     await message.answer(f"{', '.join(commands)}")
 
 
@@ -174,7 +173,53 @@ async def cmd_name(message: types.Message, command: CommandObject):
                 mes += sr.user_list(query)
                 await message.answer(mes)
 
-# Запуск процесса поллинга новых апдейтов
+
+
+@dp.message(Command("отслеживаемые"))
+async def cmd_name(message: types.Message, command: CommandObject):
+    params = command.args
+    params = sr.check_permission(message.chat.id, params)
+    if params == 'denied':
+        await message.answer("Нет доступа. Обратитесь к администратору.")
+    else:
+        query = cn.follow_query
+        if params is None:
+            if message.chat.id == sr.master_chat:
+                mes = '<b>Все сотрудники</b>\n'
+                mes += sr.follow_list(query)
+                await message.answer(mes)
+            else:
+                await message.answer('Нет доступа к данным')
+        else:
+            dep_info = sr.find_reqs(params)
+            if not dep_info:
+                await message.answer(f"Департамент или отдел {params} не найден")
+            else:
+                add_req = f"and {dep_info[1]} = '{dep_info[0]}'"
+                mes = f'<b>Сотрудники {"департамента" if dep_info[1] == "department_id" else "отдела"}: <i>{params}</i></b>\n'
+                query += add_req
+                mes += sr.follow_list(query)
+                await message.answer(mes)
+
+
+
+@dp.message(Command("группа"))
+async def cmd_name(message: types.Message, command: CommandObject):
+    try:
+        group_num, pers_id = command.args.split()
+    except:
+        await message.answer("Не задан ID сотрудника или номер группы")
+    if message.chat.id == sr.master_chat:
+        try:
+            mes = sr.add_group(int(pers_id), int(group_num))
+            await message.answer(mes)
+        except:
+            await message.answer("Не верный формат, введите ID сотрудника и группу")
+    else:
+        await message.answer("В текущей версии добавлять и убирать группу может только HR")
+
+
+
 async def main():
     await dp.start_polling(bot)
 

@@ -12,6 +12,7 @@ from app.users.models import (
     UserBot,
     UserBotModel,
     UserFull,
+    UserBotFull,
 )
 from app.base.base_accessor import BaseAccessor
 
@@ -248,6 +249,7 @@ class UserAccessor(BaseAccessor):
             id=new_user.id,
             user_id=new_user.user_id,
             is_view=new_user.is_view,
+            group=new_user.group,
         )
 
     async def update_user(self, id: int, is_view: bool) -> Optional[User]:
@@ -378,4 +380,27 @@ class UserAccessor(BaseAccessor):
                 fired=user.fired,
             )
             for user in users.all()
+        ]
+    
+    async def list_full_user_bot(self) -> List[Optional[UserBotFull]]:
+        query = (
+            select(UserBotModel)
+            .where(UserBotModel.is_view == True)
+            .options(joinedload(UserBotModel.user))
+        )
+
+        async with self.app.database.session() as session:
+            users = await session.scalars(query)
+
+        if not users:
+            return []
+        return [
+            UserBotFull(
+                id=user_bot.id,
+                name=user_bot.user.name,
+                lastname=user_bot.user.lastname,
+                is_view=user_bot.is_view,
+                group_id=user_bot.group_id,
+            )
+            for user_bot in users.all()
         ]
