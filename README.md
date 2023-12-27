@@ -12,6 +12,9 @@
 * [Telegram bot](https://github.com/RuslanLat/kolmar/tree/main/bots)
 
 3. Решение
+
+https://github.com/RuslanLat/kolmar/assets/93369024/33f79349-c5bb-406d-87cd-22707a8d0ee3
+   
 * [Web сервис](http://46.243.227.129:5981/)
 ![qrcode](images/qrcode.gif) 
 * [API](http://89.232.160.71:8080/) \
